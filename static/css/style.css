@@ -1,0 +1,137 @@
+/* =====================================================
+   GLOBAL PAGE STYLE
+===================================================== */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: linear-gradient(135deg, #ffffff, #ebe6e6);
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ===== LOGIN PAGE ===== */
+
+.login-wrapper {
+    min-height: 85vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-card {
+    display: flex;
+    width: 850px;
+    max-width: 95%;
+    border-radius: 12px;
+    overflow: hidden;
+    background: white;
+}
+
+/* LEFT IMAGE SIDE */
+.login-image {
+    width: 50%;
+    position: relative;
+}
+
+.login-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Overlay text */
+.login-image .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(13,110,253,0.65);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+}
+
+.login-image h2 {
+    font-weight: 700;
+}
+
+/* RIGHT FORM */
+.login-form {
+    width: 50%;
+}
+
+/* Bootstrap input improvement */
+.login-form input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ced4da;
+}
+
+.login-form input:focus {
+    border-color: #198754;
+    box-shadow: 0 0 0 0.2rem rgba(25,135,84,.25);
+}
+
+.signup-card {
+    width: 420px;
+    border-radius: 12px;
+}
+
+.signup-card input {
+    height: 45px;
+    border-radius: 8px;
+}
+
+.signup-card button {
+    height: 45px;
+    font-weight: 600;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .login-image {
+        display: none;
+    }
+
+    .login-form {
+        width: 100%;
+    }
+}
+
+
+/* =====================================================
+   ERROR MESSAGES
+===================================================== */
+
+.errorlist {
+    list-style: none;
+    margin: 6px 0 10px 0;
+    padding: 10px;
+    background: #fee2e2;
+    color: #b91c1c;
+    border-radius: 6px;
+    font-size: 14px;
+}
+
+
+
+
+/* =====================================================
+   RESPONSIVE DESIGN
+===================================================== */
+
+@media (max-width: 420px) {
+    .login-container {
+        width: 90%;
+        padding: 25px;
+    }
+}

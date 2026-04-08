@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block title %}Add Income{% endblock %}
+
+{% block content %}
+<div class="card shadow-sm p-4">
+    <h3 class="mb-4">Add Income</h3>
+
+    <form method="post">
+        {% csrf_token %}
+
+        <div class="mb-3">
+            <label class="form-label">Source</label>
+            {{ form.source }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Amount</label>
+            {{ form.amount }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Date</label>
+            {{ form.date }}
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Description</label>
+            {{ form.description }}
+        </div>
+
+        <button type="submit" class="btn btn-success">
+            Save Income
+        </button>
+
+        <a href="{% url 'dashboard' %}" class="btn btn-secondary">
+            Cancel
+        </a>
+    </form>
+</div>
+{% endblock %}
