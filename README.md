@@ -1,4 +1,4 @@
-# 💰 SmartBudget – Personal Finance Management System
+# SmartBudget – Personal Finance Management System
 
 SmartBudget is a modern web-based personal finance management application built with **Django** and **Bootstrap** that helps users track income, expenses, and spending categories while gaining intelligent insights into their financial habits.
 
@@ -6,28 +6,28 @@ The system provides a simple, clean, and interactive dashboard designed to promo
 
 ---
 
-## 🚀 Features
+## Features
 
-### 🔐 Authentication
+### Authentication
 - User registration and login system
 - Secure authentication using Django Auth
 - Toast notifications for user actions
 - Password visibility toggle
 - Form validation with disabled submit until valid
 
-### 💵 Financial Management
+### Financial Management
 - Add Income records
 - Add Expense records
 - Create and manage expense categories
 - Organized financial tracking
 
-### 📊 Smart Insights
+### Smart Insights
 - Category-based expense analysis
 - Smart spending insights
 - Visual reports using Chart.js
 - Budget behavior monitoring
 
-### 🎨 User Interface
+### User Interface
 - Responsive Bootstrap 5 design
 - Modern navbar layout
 - Toast notification system
@@ -36,7 +36,7 @@ The system provides a simple, clean, and interactive dashboard designed to promo
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** Django (Python)
 - **Frontend:** HTML5, CSS3, Bootstrap 5
@@ -85,7 +85,7 @@ The system provides a simple, clean, and interactive dashboard designed to promo
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/ddc3a575-5321-46a6-badf-adbb5308f86b" />
 
 
-## 📂 Project Structure
+## Project Structure
 ```
 │
 ├── accounts/ # Authentication & user management
@@ -149,14 +149,14 @@ python manage.py runserver
 http://127.0.0.1:8000/
 ```
 
-### 🎯 Future Improvements
+### Future Improvements
 AI-powered spending predictions
 Monthly budget goals
 Export reports (PDF/Excel)
 REST API integration
 Mobile app version
 
-### 🤝 Contributing
+### Contributing
 
 Contributions are welcome! Feel free to fork the repository and submit pull requests.
 
