@@ -47,19 +47,41 @@ The system provides a simple, clean, and interactive dashboard designed to promo
 ---
 
 ## Screenshots
+
 ### Login Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/7ab7c22b-9e40-48c4-abc6-6fa693738df5" />
+
 ### Dashboard
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/ad4cffd5-823f-4f25-a089-28c2d0e8ebe0" />
+
 ### Income List Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/f760115b-83fd-4072-8b43-ed16d6cfb462" />
+
 ### Add Income Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/f2bb4007-a7e7-4a48-8607-1a8b4aa627f8" />
+
 ### Expenses List Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/db6fe83b-2ec0-40c8-9f78-731c9bfb6356" />
+
+### Add Expense Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/14436528-c7b6-487d-89ab-2c8157b55c78" />
+
+### Category List Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/6b355140-4079-4c3e-87a9-b69edc70a302" />
+
+### Add Category Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/e7be3bb5-02ce-45dc-bb0d-ac3e284a034c" />
+
+### Reset Data Page
+
 <img width="1857" height="928" alt="Image" src="https://github.com/user-attachments/assets/ddc3a575-5321-46a6-badf-adbb5308f86b" />
 
 
