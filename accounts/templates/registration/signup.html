@@ -1,0 +1,127 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+
+<div class="login-wrapper">
+
+    <div class="login-card shadow-lg">
+
+        <!-- LEFT IMAGE PANEL -->
+        <div class="login-image">
+            <img src="{% static 'budget.jpg' %}" alt="Budget">
+            <div class="overlay">
+                <h2>💰 SmartBudget</h2>
+                <p>Track. Analyze. Grow.</p>
+            </div>
+        </div>
+
+        <!-- RIGHT FORM PANEL -->
+        <div class="login-form p-1">
+
+            <div class="card shadow-lg p-1 signup-card">
+                <center>
+                    <img width="60" height="60"
+                         src="https://img.icons8.com/fluency/48/budget.png"
+                         alt="budget"/>
+                </center>
+
+                <h3 class="text-center mb-4">Create Account</h3>
+
+                <form method="post" id="signupForm">
+                    {% csrf_token %}
+
+                    {% for field in form %}
+                        <div class="mb-2">
+                            <label class="form-label fw-semibold">
+                                {{ field.label }}
+                            </label>
+
+                            {% if 'password' in field.name %}
+                                <div class="input-group">
+                                    {{ field }}
+                                    <button type="button" class="btn btn-outline-secondary toggle-password">
+                                        👁
+                                    </button>
+                                </div>
+                                
+                                {% if field.name == 'password1' %}
+                                    <!-- Password strength bar -->
+                                    <div class="password-strength mt-2 mb-2">
+                                        <div class="progress" style="height: 6px;">
+                                            <div id="passwordStrengthBar" class="progress-bar" role="progressbar" style="width: 0%"></div>
+                                        </div>
+                                        <small id="passwordStrengthText" class="text-muted">Password strength: None</small>
+                                    </div>
+                                    
+                                    <!-- Password requirements checklist -->
+                                    <div class="password-requirements mt-2" id="passwordRequirements">
+                                        <small class="text-muted d-block mb-1">Password must contain:</small>
+                                        <div class="requirement-item" id="req-length">
+                                            <span class="requirement-icon">◯</span>
+                                            <span>At least 8 characters</span>
+                                        </div>
+                                        <div class="requirement-item" id="req-upper">
+                                            <span class="requirement-icon">◯</span>
+                                            <span>At least 1 uppercase letter</span>
+                                        </div>
+                                        <div class="requirement-item" id="req-lower">
+                                            <span class="requirement-icon">◯</span>
+                                            <span>At least 1 lowercase letter</span>
+                                        </div>
+                                        <div class="requirement-item" id="req-number">
+                                            <span class="requirement-icon">◯</span>
+                                            <span>At least 1 number</span>
+                                        </div>
+                                        <div class="requirement-item" id="req-special">
+                                            <span class="requirement-icon">◯</span>
+                                            <span>At least 1 special character (@$!%*?&)</span>
+                                        </div>
+                                    </div>
+                                {% endif %}
+                                
+                            {% else %}
+                                {{ field }}
+                            {% endif %}
+
+                            {% if field.help_text and field.name != 'password1' %}
+                                <div class="form-text small text-muted">
+                                    {{ field.help_text }}
+                                </div>
+                            {% endif %}
+
+                            {% for error in field.errors %}
+                                <div class="text-danger small">
+                                    {{ error }}
+                                </div>
+                            {% endfor %}
+
+                        </div>
+                    {% endfor %}
+
+                    <button type="submit"
+                            id="submitBtn"
+                            class="btn btn-success w-100 mt-2">
+                        Sign Up
+                    </button>
+                </form>
+
+                <hr>
+
+                <p class="text-center mb-0">
+                    Already have an account?
+                    <a href="{% url 'login' %}" class="fw-semibold">Log In</a>
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,138 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="container">
+
+<h2 class="mb-4">Dashboard</h2>
+<h3 class="mb-3">Welcome back, <i>{{ user.username }}</i>!</h3>
+
+<!-- SUMMARY CARDS -->
+<div class="row mb-4">
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <img width="66" height="66" class="m-3" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-incomes-insurance-flaticons-flat-flat-icons.png" alt="external-incomes-insurance-flaticons-flat-flat-icons"/>
+            <h5>Total Income</h5>
+            <h3 class="text-success">KES {{ total_income }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <img width="64" height="64" class="m-3" src="https://img.icons8.com/external-flaticons-flat-flat-icons/64/external-expenses-accounting-flaticons-flat-flat-icons-6.png" alt="external-expenses-accounting-flaticons-flat-flat-icons-6"/>
+            <h5>Total Expenses</h5>
+            <h3 class="text-danger">KES {{ total_expense }}</h3>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card p-3 shadow-sm">
+            <img width="64" height="64" class="m-3" src="https://img.icons8.com/emoji/48/balance-scale.png" alt="balance-scale"/>
+            <h5>Balance</h5>
+            <h3>KES {{ balance }}</h3>
+        </div>
+    </div>
+</div>
+
+<h2 class="mb-4">Financial Overview</h2>
+
+<!-- SMART ANALYSIS -->
+ 
+<div class="alert alert-info">
+    Hi {{user.username}}, {{ analysis }}
+</div>
+
+{% if top_category %}
+<div class="alert alert-warning shadow-sm">
+    🧠 You spend most on <strong>{{ top_category }}</strong>
+    ({{ category_percent }}% of total expenses)
+</div>
+{% endif %}
+
+{% if spending_rate > 100 %}
+<div class="alert alert-danger">
+    ⚠️ You are spending more than your income!
+</div>
+{% endif %}
+
+<div class="card p-3 shadow-sm mb-3">
+
+    <h4>Smart Financial Insight</h4>
+
+    <p class="mb-1">
+        <strong>Status:</strong> {{ status }}
+    </p>
+
+    <p class="mb-1">
+        <strong>Savings Rate:</strong> {{ savings_rate }}%
+    </p>
+
+</div>
+
+<!-- GRAPHS -->
+<div class="row g-3">
+
+    <div class="col-md-6">
+        <div class="card p-3 shadow-sm h-100">
+            <h5 class="text-center">Income vs Expenses</h5>
+            <div class="chart-box">
+                <canvas id="incomeExpenseChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="card p-3 shadow-sm h-100">
+            <h5 class="text-center">Expense Categories</h5>
+            <div class="chart-box">
+                <canvas id="categoryChart"></canvas>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const categories = {{ categories_json|safe }};
+const totals = {{ category_totals_json|safe }};
+const totalIncome = {{ total_income }};
+const totalExpense = {{ total_expense }};
+const categoryPercent = {{ category_percent }};
+
+new Chart(document.getElementById('incomeExpenseChart'), {
+    type: 'bar',
+    data: {
+        labels: ['Income', 'Expenses'],
+        datasets: [{
+            label: 'KES',
+            data: [totalIncome, totalExpense],
+            backgroundColor: ['#28a745', '#dc3545']
+        }]
+    },
+    options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: { legend: { display: false } }
+    }
+});
+
+new Chart(document.getElementById('categoryChart'), {
+    type: 'pie',
+    data: {
+        labels: categories,
+        datasets: [{
+            data: categoryPercent ? totals : [1],  
+            backgroundColor: [
+                '#007bff','#00ddff','#ffc107','#dc3545','#6c757d','#00ddff','#fd7e14'
+            ]
+        }]
+    },
+    options: { responsive: true, maintainAspectRatio: false }
+});
+</script>
+
+{% endblock %}
